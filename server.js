@@ -1,15 +1,23 @@
 import express from 'express';
+import path from 'path';
+import { fileURLToPath } from "url";
 
-const PORT = process.env.PORT || 5500;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const PORT = 3000;
+
+const replicaApp_Name = process.env.APP_NAME
 
 const app = express();
 
 
 app.get("/", (req, res) => {
-    res.status(200).json({"running get request from a Docker": "success"});
+    res.sendFile(path.join(__dirname, "index.html"));
+    console.log(`Server is running on Docker port ${PORT} - App: ${replicaApp_Name}`);
 })
 
 
 app.listen(PORT,() =>{
-    console.log(`Server is running on Docker port ${PORT}`);
+    console.log(`Server is running on Docker port ${PORT} - App: ${replicaApp_Name}`);
 })
