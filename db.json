@@ -1,0 +1,45 @@
+{
+  "company": "TechSphere Solutions",
+  "active": true,
+  "location": {
+    "country": "United States",
+    "city": "Austin",
+    "coordinates": {
+      "latitude": 30.2672,
+      "longitude": -97.7431
+    }
+  },
+  "employees": [
+    {
+      "id": 101,
+      "name": "Alice Johnson",
+      "role": "Senior Developer",
+      "department": "Engineering",
+      "skills": ["JavaScript", "Python", "SQL"],
+      "age": 29,
+      "remote_work": true,
+      "termination_date": null
+    },
+    {
+      "id": 102,
+      "name": "Marcus Chen",
+      "role": "UI/UX Designer",
+      "department": "Design",
+      "skills": ["Figma", "Adobe XD", "CSS"],
+      "age": 34,
+      "remote_work": false,
+      "termination_date": null
+    },
+    {
+      "id": 103,
+      "name": "Sarah Jenkins",
+      "role": "Data Analyst",
+      "department": "Business Intelligence",
+      "skills": ["R", "Tableau", "Excel"],
+      "age": 41,
+      "remote_work": true,
+      "termination_date": null
+    }
+  ],
+  "total_count": 3
+}

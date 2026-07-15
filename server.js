@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from "url";
 import redis from "./config/redis.config.js";
+import courseRouter from "./routes/course.routes.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -12,16 +13,12 @@ const replicaApp_Name = process.env.APP_NAME
 
 const app = express();
 
+app.use(express.json());
+
+app.use("/courses", courseRouter);
+
 redis.set("mykey", "MyValue From NodeJs");
 
-// ioredis supports the node.js callback style
-redis.get("mykey", (err, result) => {
-  if (err) {
-    console.error(err);
-  } else {
-    console.log(result); // Prints "value"
-  }
-});
 
 // Or ioredis returns a promise if the last argument isn't a function
 redis.get("mykey").then((result) => {
