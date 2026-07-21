@@ -3,6 +3,7 @@ import path from 'path';
 import { fileURLToPath } from "url";
 import redis from "./config/redis.config.js";
 import courseRouter from "./routes/course.routes.js";
+import lectureRouter from './routes/lecture.routes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -15,7 +16,11 @@ const app = express();
 
 app.use(express.json());
 
+//course routes
 app.use("/courses", courseRouter);
+
+//lecture routes
+app.use("/lectures", lectureRouter); 
 
 redis.set("mykey", "MyValue From NodeJs");
 
@@ -31,7 +36,7 @@ app.get("/", (req, res) => {
     console.log(`Server is running on Docker port ${PORT} - App: ${replicaApp_Name}`);
 })
 
-
+//Attendance
 app.listen(PORT,() =>{
     console.log(`Server is running on Docker port ${PORT} - App: ${replicaApp_Name}`);
 })
